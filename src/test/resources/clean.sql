@@ -1,0 +1,2 @@
+DROP TABLE REGIONS;
+DROP SEQUENCE region_seq;
