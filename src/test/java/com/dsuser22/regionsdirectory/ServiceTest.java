@@ -15,7 +15,6 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 
 @RunWith(MockitoJUnitRunner.class)
-//@SpringBootTest
 public class ServiceTest {
 
     @Mock private RegionMapper regionMapper;
@@ -25,21 +24,21 @@ public class ServiceTest {
 
 
     @Test
-    public void getRegions(){
+    public void shouldGetRegions(){
         regionService.getRegions();
         verify(regionMapper).getRegions();
     }
 
 
     @Test
-    public void getRegionById(){
+    public void shouldGetRegionById(){
         long id = 3L;
         regionService.getRegionById(id);
         verify(regionMapper).getRegionById(id);
     }
 
     @Test
-    public void addRegion(){
+    public void shouldAddRegion(){
         Region region = new Region("RUSSIA", "RU");
         regionService.addRegion(region);
         ArgumentCaptor<Region> argumentCaptor = ArgumentCaptor.forClass(Region.class);
@@ -52,7 +51,7 @@ public class ServiceTest {
     }
 
     @Test
-    public void updateRegionById(){
+    public void shouldUpdateRegionById(){
         long id = 3L;
         Region region = new Region("RUSSIA", "RU");
         regionService.updateRegionById(region, id);
@@ -60,7 +59,7 @@ public class ServiceTest {
     }
 
     @Test
-    public void deleteRegionById(){
+    public void shouldDeleteRegionById(){
         long id = 3L;
         regionService.deleteRegionById(id);
         verify(regionMapper).deleteRegionById(id);
@@ -68,7 +67,7 @@ public class ServiceTest {
 
 
     @Test
-    public void deleteRegions(){
+    public void shouldDeleteRegions(){
         regionService.deleteRegions();
         verify(regionMapper).deleteRegions();
     }
